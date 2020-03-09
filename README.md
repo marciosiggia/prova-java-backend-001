@@ -9,7 +9,7 @@ Como cliente da Lannister Serviços de Transporte, quero conhecer as rotas dispo
 O objetivo desta aplicação é ajudar a Lannister Serviços de Transporte a fornecer a seus clientes informações sobre as rotas. Em particular, você calculará a distância ao longo de uma determinada rota, o número de rotas diferentes entre duas cidades e a rota mais curta entre duas cidades.
 ### Critérios funcionais e de aceitação
 A entrada será fornecida como um grafo direcionado em que um nó representa uma cidade e uma aresta representa uma rota entre duas cidades. O número ao lado da aresta, representa a distância entre as duas cidades. Uma determinada rota nunca aparecerá mais de uma vez e, para uma determinada rota, a cidade inicial e final não serão a mesma. <br/><br/>
-O grafo direcionado será representado como texto sem formatação, onde as cidades são nomeadas usando letras do alfabeto. Uma rota da cidade A para a cidade B com distância 5 é representada pela sequência AB6. Também pode ser representado como JSON:
+O grafo direcionado será representado como texto sem formatação, onde as cidades são nomeadas usando letras do alfabeto. Uma rota da cidade A para a cidade B com distância 5 é representada pela sequência AB6. Também pode ser representado como **JSON**:
 ~~~json
   { 
     "origem": "A", 
@@ -159,7 +159,7 @@ Esse endpoint deve receber um grafo e armazená-lo no banco de dados para futura
 ~~~
 
 #### 2. Recuperar configuração do grafo
-Esse endpoint deve recuperar um grafo salvo anteriormente do banco de dados. Se o grafo não existir, retornar uma resposta de erro NÃO ENCONTRADA.
+Esse endpoint deve recuperar um grafo salvo anteriormente do banco de dados. Se o grafo não existir, retornar uma resposta de erro **NÃO ENCONTRADA**.
 <br/><br/>
 **Endpoint:** http://\<host\>:\<port\>/grafo/\<id_grafo\>
 <br/>
@@ -457,7 +457,7 @@ Esse endpoint deve fazer exatamente o mesmo cálculo descrito no exercício ante
   ] 
 }
 ~~~
-* **Response payload:**
+* **Response payload:** 
 ~~~json
 { 
   "distancia" : 9 
@@ -595,14 +595,14 @@ AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
 
 ### Detalhes técnicos
 * Para iniciar o desenvolvimento, crie um fork deste repositório na sua conta de usuário. Essa versão será usada durante a avaliação.
-* Você deve implementar mais do que um algoritmo barebone. Esperamos uma aplicação executável com uma estrutura mínima. Você deve criar um modelo de objeto e usar padrões de design onde for apropriado, mas tente manter as coisas simples.
+* Você deve implementar mais do que um algoritmo **barebone**. Esperamos uma aplicação executável com uma estrutura mínima. Você deve criar um modelo de objetos e usar design pattern onde for apropriado, mas tente manter as coisas simples.
 * A aplicação já possui uma configuração do Maven.
 * Verifique se o seu conjunto de testes faz parte da compilação depois de criá-lo.
-* A aplicação inicia com um comando Maven: mvn spring-boot: run
+* A aplicação inicia com um comando Maven: **mvn spring-boot: run**
 * Você pode configurar outra maneira de iniciar sua aplicação sem o Spring Boot, mas não interrompa a inicialização do Spring Boot. Sua aplicação deve funcionar corretamente ao usar o comando de inicialização do Spring Boot.
 * A aplicação deve ter uma API sem estado e usar um banco de dados para armazenar os dados.
 * Um banco de dados H2, em memória, já está disponível para uso na configuração do projeto. Sinta-se à vontade para alterar essa implementação, mas você deve garantir que sua aplicação será inicializado como um processo independente em qualquer ambiente diferente.
-* Embora você possa alterar a porta que a aplicação usará no desenvolvimento local, certifique-se de NÃO O MUDAR no seu repositório.
+* Embora você possa alterar a porta que a aplicação usará no desenvolvimento local, certifique-se de **NÃO O MUDAR** no seu repositório.
 * A criação do banco de dados e das tabelas deve ser feita pelo Maven (estendendo o processo de compilação) ou pela aplicação.
 * Documente qualquer informação adicional que julgue necessária para avaliar adequadamente seu teste.
 
@@ -613,10 +613,10 @@ Recomendamos que você use sua versão (do fork) deste repositório para organiz
 
 ### Diretrizes de avaliação
 Você será avaliado nos seguintes aspectos, classificados por prioridade:
-1. Limpeza de código e consistência de nomes
+1. Clareza do código e consistência de nomes
 2. Design orientado a objetos
-3. Testes automatizados (testes de unidade e / ou integração)
-4. Uso adequado da linguagem, recursos da estrutura e melhores práticas
+3. Testes automatizados (testes de unidade e/ou integração)
+4. Uso adequado da linguagem, recursos do framework e melhores práticas
 5. Execução correta
 6. Conclusão das funcionalidades
 
