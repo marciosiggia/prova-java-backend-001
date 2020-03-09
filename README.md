@@ -32,6 +32,7 @@ Esse endpoint deve receber um grafo e armazená-lo no banco de dados para futura
 <br/>
 **Contrato:**
 *	Request payload:
+~~~json
 {
       "dados":[
           { "origem": "A", "destino": "B", "distancia":6 },
@@ -47,8 +48,9 @@ Esse endpoint deve receber um grafo e armazená-lo no banco de dados para futura
           { "origem": "E", "destino": "D", "distancia":7 }
      ]
 }
-
+~~~
 •	Response payload:
+~~~json
 {
      "id" : 1,
      "dados":[
@@ -65,22 +67,21 @@ Esse endpoint deve receber um grafo e armazená-lo no banco de dados para futura
           { "origem": "E", "destino": "D", "distancia":7 }
     ]
 }
+~~~
 
-
-
-
-
-
-
-
-2. Recuperar configuração do grafo
+#### 2. Recuperar configuração do grafo
 Esse endpoint deve recuperar um grafo salvo anteriormente do banco de dados. Se o grafo não existir, retornar uma resposta de erro NÃO ENCONTRADA.
-Endpoint: http://<host>:<port>/grafo/<id_grafo>
+<br/>
+Endpoint: http://\<host\>:\<port\>/grafo/\<id_grafo\>
+<br/>
 Método HTTP: GET
+<br/>
 Código de resposta HTTP: OK
+<br/>
 Contrato:
-•	Request payload: não possui.
-•	Response payload:
+* Request payload: não possui.
+* Response payload:
+~~~json
 {
       "id" : 1,
       "dados":[
@@ -97,43 +98,22 @@ Contrato:
     { "origem": "E", "destino": "D", "distancia":7 }
       ]
 }
+~~~
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3. Encontre rotas disponíveis para um determinado par de cidades
+#### 3. Encontre rotas disponíveis para um determinado par de cidades
 Esse endpoint deve calcular todas as rotas disponíveis de qualquer par de cidades dentro de um número máximo especificado de paradas. Se não houver rotas disponíveis, o resultado deve ser uma lista vazia. Caso o parâmetro "qtdMaxParadas" não seja fornecido, você deve listar todas as rotas para o par de cidades especificado.
 Por exemplo, no grafo (AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7), as rotas possíveis de A à C, com no máximo 3 paradas, seriam: ["ABC", "ADC", "AEBC"]
-Endpoint: http://<host>:<port>/rotas/de/<cidade_1>/para/<cidade_2>?qtdMaxParadas=<quantidade máxima de paradas>
+<br/>
+Endpoint: http://\<host\>:\<port\>/rotas/de/\<cidade_1\>/para/\<cidade_2\>?qtdMaxParadas=\<qtd_maxima_de_paradas\>
+<br/>
 Método HTTP: POST
+<br/>
 Código de resposta HTTP: OK
+<br/>
 Contrato:
-•	Request payload
+<br/>
+* Request payload:
+~~~json
 {
       "dados":[
           { "origem": "A", "destino": "B", "distancia":6 },
@@ -149,8 +129,9 @@ Contrato:
           { "origem": "E", "destino": "D", "distancia":7 }
      ]
 }
-
-•	Response payload:
+~~~
+* Response payload:
+~~~json
 {
       "rotas": [
           { "rota": "ABC", "paradas": 2 },
@@ -158,56 +139,51 @@ Contrato:
           { "rota": "AEBC", "paradas": 3 }
       ]
 }
+~~~
 
-
-
-
-
-
-
-
-
-4. Encontre rotas disponíveis para um determinado par de cidades no grafo salvo
+#### 4. Encontre rotas disponíveis para um determinado par de cidades no grafo salvo
 Esse endpoint deve fazer exatamente o mesmo cálculo descrito no exercício anterior, mas deve usar um grafo salvo anteriormente. Se o grafo não existir no banco de dados, ele deverá retornar uma resposta de erro NÃO ENCONTRADA.
-Endpoint: http://<host>:<port>/rotas/<id_grafo>/de/<cidade_1>/para/<cidade_2>? qtdMaxParadas=<qtd máxima de paradas>
+<br/>
+Endpoint: http://\<host\>:\<port\>/rotas/\<id_grafo\>/de/\<cidade_1\>/para/\<cidade_2\>? qtdMaxParadas=\<qtd_maxima_de_paradas\>
+<br/>
 Método HTTP: GET
+<br/>
 Código de resposta HTTP: OK
+<br/>
 Contrato:
-•	Request payload: não possui.
-•	Response payload: 
-{ "rotas": [
-       { "rota": "ABC", "paradas": 2 },
-       { "rota": "ADC", "paradas": 2 },
-       { "rota": "AEBC", "paradas": 3 }
- ] }
+* Request payload: não possui.
+* Response payload:
+~~~json 
+{ 
+  "rotas": [
+    { 
+      "rota": "ABC", 
+      "paradas": 2 
+    },
+    { 
+      "rota": "ADC", 
+      "paradas": 2 
+    },
+    { 
+      "rota": "AEBC", 
+      "paradas": 3 
+    }
+  ] 
+}
+~~~
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5. Encontrar distância para o caminho
+#### 5. Encontrar distância para o caminho
 Esse endpoint deve receber um grafo e uma lista ordenada de cidades e recuperar a distância total, ao percorrer a lista de cidades, na ordem em que aparecem na solicitação. Se a lista de cidades estiver vazia ou tiver um único elemento, o resultado deverá ser zero. Se não houver um caminho descrito pela lista de cidades, o resultado deverá ser -1.
-Endpoint: http://<host>:<port>/distancia
+<br/>
+Endpoint: http://\<host\>:\<port\>/distancia
+<br/>
 Método HTTP: POST
+<br/>
 Código de resposta HTTP: OK
+<br/>
 Contrato:
-•	Request payload: 
+* Request payload: 
+~~~json
 {
   "caminho": ["A", "B", "C", "D"],
   "dados": [
@@ -224,53 +200,45 @@ Contrato:
     	{ "origem": "E", "destino": "D", "distancia":7 }
   ]
 }
-•	Response payload:
-{ "distancia" : 9 }
+~~~
+* Response payload:
+~~~json
+{ 
+  "distancia" : 9 
+}
+~~~
 
-
-
-
-
-
-6. Encontre a distância par o caminho em um grafo salvo
+#### 6. Encontre a distância par o caminho em um grafo salvo
 Esse endpoint deve fazer exatamente o mesmo cálculo descrito no exercício anterior, mas deve usar um grafo salvo anteriormente. Se o grafo não existir no banco de dados, deverá retornar uma resposta de erro NÃO ENCONTRADA.
-Endpoint: http: //<host>:<port>/distancia/<id_grafo>
+<br/>
+Endpoint: http: //\<host\>:\<port\>/distancia/\<id_grafo\>
+<br/>
 Método HTTP: POST
+<br/>
 Código de resposta HTTP: OK
+<br/>
 Contrato: 
-•	Request payload:
+* Request payload:
+~~~json
 { "caminho": ["A", "B", "C", "D"] }
-•	Response payload:
+~~~
+* Response payload:
+~~~json
 { "distancia" : 9 }
+~~~
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7. Encontre distância entre duas cidades
+#### 7. Encontre distância entre duas cidades
 Esse endpoint deve receber um grafo e encontrar o caminho mais curto entre duas cidades. Se a cidade inicial e final for igual, o resultado deverá ser zero. Se não houver caminho entre essas cidades, deve ser -1.
-Endpoint: http://<host>:<port>/distancia/de/<cidade_1>/para/<cidade_2>
+<br/>
+Endpoint: http://\<host\>:\<port\>/distancia/de/\<cidade_1\>/para/\<cidade_2\>
+<br/>
 Método HTTP: POST
+<br/>
 Código de resposta HTTP: OK
+<br/>
 Contrato:
-•	Request payload:
+* Request payload:
+~~~json
 {
       "dados": [
           { "origem": "A", "destino": "B", "distancia":6 },
@@ -286,32 +254,30 @@ Contrato:
           { "origem": "E", "destino": "D", "distancia":7 }
      ]
 }
-•	Response payload:
+~~~
+* Response payload:
+~~~json
 {
   "distancia" : 3,
   "caminho" :  ["A", "B", "C"]
 }
+~~~
 
-
-
-
-
-
-
-
-
-
-
-
-8. Encontre a distância entre duas cidades em um grafo salvo
+#### 8. Encontre a distância entre duas cidades em um grafo salvo
 Esse endpoint deve fazer exatamente o mesmo cálculo descrito no exercício anterior, mas deve usar um grafo salvo anteriormente. Se o grafo não existir no banco de dados, deverá retornar uma resposta de erro NÃO ENCONTRADA.
-Endpoint: http://<host>:<port>/distancia/<id_grafo>/de/<cidade_1>/para/<cidade_2>
+<br/>
+Endpoint: http://\<host\>:\<port\>/distancia/\<id_grafo\>/de/\<cidade_1\>/para/\<cidade_2\>
+<br/>
 Método HTTP: GET
+<br/>
 Código de resposta HTTP: OK
+<br/>
 Contrato:
-•	Request payload: não possui.
-•	Response payload:
+* Request payload: não possui.
+* Response payload:
+~~~json
 {
   "distancia" : 3,
   "caminho" : ["A", "B", "C"]
 }
+~~~
