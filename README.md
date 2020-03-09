@@ -2,7 +2,7 @@
 ### Tempo de solução
 Você terá 5 dias para realizar esse desafio.
 ### Plano de Fundo
-A Lannister Serviços de Transporte fornece serviços de deslocamento e transporte para várias cidades na grande terra de Westeros. Por razões econômicas e para evitar emboscadas, a maioria das rotas é "de mão única". Ou seja, uma rota de Volantis para King's Landing não implica em uma rota de King's Landing para Volantis. De fato, mesmo que essas duas rotas existam, elas são distintas e não têm necessariamente a mesma distância!
+A Lannister Serviços de Transporte fornece serviços de deslocamento e transporte para várias cidades na grande terra de Westeros. Por razões econômicas e para evitar emboscadas, a maioria das rotas são "de mão única". Ou seja, uma rota de Volantis para King's Landing não implica em uma rota de King's Landing para Volantis. De fato, mesmo que essas duas rotas existam, elas são distintas e não têm necessariamente a mesma distância!
 ### Fase da história
 Como cliente da Lannister Serviços de Transporte, quero conhecer as rotas disponíveis entre as cidades bem como as distâncias, para que eu possa escolher a melhor rota para minha viagem.
 ### Narrativa / cenário de negócios
