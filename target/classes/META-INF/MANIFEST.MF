@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: prova-java-spcbrasil001
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: jsmja
+Implementation-Vendor-Id: br.org.spcbrasil
+Build-Jdk: 1.8.0_231
+Implementation-URL: http://projects.spring.io/spring-boot/prova-java-s
+ pcbrasil001/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
